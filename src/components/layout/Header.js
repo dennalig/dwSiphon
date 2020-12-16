@@ -13,6 +13,19 @@ import EnterInfo from './EnterInfo'; // EnterInfo component
 //TODO: Make dynamic Login/Logout display whether user is logged in 
 
 export class Header extends Component{
+
+    state ={};
+
+    showLogin = () =>{
+        if(document.getElementById("InfoSection")){
+            
+            document.getElementById("InfoSection").style.display = "full";
+           
+           
+        }
+        
+    };
+
     render(){ // 
         return(
             <header style={headerStyle}>
@@ -26,7 +39,9 @@ export class Header extends Component{
                 <input type="button"
                 value="Login"
                 className="btn"
-                style={buttonStyle} />
+                style={buttonStyle} 
+                onClick = {this.showLogin}
+                />
     
                 <div className="container">
                     <p style={optionStyle}>
@@ -35,7 +50,12 @@ export class Header extends Component{
                         <Link style={linkStyle} to='/about'>About </Link></p>
                 </div>
 
+                <div id="InfoSection" 
+                style={{display: 'none'}}> 
                 <EnterInfo/> {/* renders component within component */}
+               
+                </div>
+                
                 </h1>
                 
                 
@@ -44,6 +64,8 @@ export class Header extends Component{
             </header>
         )
     }
+
+ 
 }
 
 const headerStyle ={
