@@ -14,47 +14,57 @@ import EnterInfo from './EnterInfo'; // EnterInfo component
 
 export class Header extends Component{
 
-    state ={};
+    state ={
+        showEnterInfo: false,
+    }; // this controls the drop down of entering info, state
 
-    showLogin = () =>{
-        if(document.getElementById("InfoSection")){
-            
-            document.getElementById("InfoSection").style.display = "full";
-           
-           
-        }
-        
-    };
+
+    showInfo = () => {
+        this.setState({showEnterInfo:true});
+    } // function for changing the state 
+
+    hideInfo =() => {
+        this.setState({showEnterInfo:false});
+    } //reverts to hiding when on a new page 
 
     render(){ // 
+
         return(
             <header style={headerStyle}>
-                <h1>Discover Weekly Siphon
+                <h1> <Link style={linkStyle} to='/' onClick={this.hideInfo}>
+                    Discover Weekly Siphon
+                    </Link>
     
                 <input type="button"
                 value="Connect Your Spotify Account"
                 className="btn"
-                style={buttonStyle} />
+                style={buttonStyle}
+                onClick = {
+                    this.showInfo
+                } />
 
                 <input type="button"
                 value="Login"
                 className="btn"
                 style={buttonStyle} 
-                onClick = {this.showLogin}
+                onClick = {
+                    this.showInfo
+                }
                 />
     
                 <div className="container">
                     <p style={optionStyle}>
-                        <Link style={linkStyle} to='/'>Home </Link> 
+                        <Link style={linkStyle} to='/' onClick={this.hideInfo}>Home </Link> 
                         |
-                        <Link style={linkStyle} to='/about'>About </Link></p>
+                        <Link style={linkStyle} to='/about' onClick={this.hideInfo} >About </Link></p>
                 </div>
 
-                <div id="InfoSection" 
-                style={{display: 'none'}}> 
-                <EnterInfo/> {/* renders component within component */}
-               
-                </div>
+                {this.state.showEnterInfo ? <EnterInfo />: null} {/*this is the enter infocomponent*/}
+                {/* https://www.youtube.com/watch?v=3wvdq_j5S1c&t=70s   
+                
+                Thanks Ben Awad */}
+             
+
                 
                 </h1>
                 
