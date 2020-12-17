@@ -16,10 +16,21 @@ export default function EnterInfo() {
     const formStyle ={
         display:'flex', 
         float:'right',
-        height:'30px ',
+        height:'30px '
        
         
     };// form style
+
+    const enterButtonStyle ={
+        flex: '0',
+        border: 'none',
+        borderRadius: '5px',
+        backgroundColor: 'blue',
+        fontFamily: 'Tahoma',
+        color: 'white',
+        
+        
+    }
 
     return (
         <div style={{padding: '3px'}}>
@@ -40,6 +51,13 @@ export default function EnterInfo() {
             style={inputBoxStyle}
             >
             </input>
+
+            <input type ="button"
+            id ="enter"
+            value ="login"
+            className="btn"
+            style={enterButtonStyle}
+            />
 
            </form>
         </div>
