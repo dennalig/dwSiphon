@@ -24,5 +24,3 @@ yarn-error.log*
 
 #repo token
 
-#inside of backend folder  (npm i dotenv --save)
-.env
