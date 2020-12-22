@@ -17,25 +17,25 @@ import axios from "axios";// npm i axios -- checks the proxy upon 3000 fail
 
 class App extends Component{
  
-  constructor(){
-    super()
-    this.state ={
-      weather: "",
-    }
+  // constructor(){
+  //   super()
+  //   this.state ={
+  //     weather: "",
+  //   }
     
-  };
+  // };
 
-  componentDidMount = () =>{ // default funct 
-    axios.get("/getWeathertoronto").then(response =>{
-      console.log(response.data.temp);
-      this.setState({
+  // componentDidMount = () =>{ // default funct 
+  //   axios.get("/getWeathertoronto").then(response =>{
+  //     console.log(response.data.temp);
+  //     this.setState({
 
       
-        weather: response.data.temp
-      }
-      ); // this sets the state to the passed in weather data
-    });
-  };
+  //       weather: response.data.temp
+  //     }
+  //     ); // this sets the state to the passed in weather data
+  //   });
+  // };
 
   /* but you dont want api requests in these places actually.. 
   can cause timing out
@@ -44,6 +44,8 @@ class App extends Component{
   YouTuber: Anthony Sistilli
 
   */
+
+  //--->end of weather app example 
 
   render(){
     return(
@@ -61,7 +63,7 @@ class App extends Component{
 
     </div>
 
-    <p style={{color:'white'}}>here is {this.state.weather}</p>
+    {/* <p style={{color:'white'}}>here is {this.state.weather}</p> */}
     </Router>
      
     );
