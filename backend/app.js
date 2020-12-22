@@ -14,7 +14,7 @@ const port = 5000; // change from 3000 5000 as 3000 is where react is ran
 
 //K
 // console.log(process.env);
-const myKey= process.env.WEATHERSTACK_KEY // dot env currently not working  ---> youtube vid : https://www.youtube.com/watch?v=HRBNeERE5PU 
+const myKey= process.env.WEATHERSTACK_KEY 
 //https://www.youtube.com/watch?v=17UVejOw3zA
 app.get("/getWeathertoronto", (req, res)=>{
   request("http://api.weatherstack.com/current?access_key="+String(myKey)+"&query='New York'", 
