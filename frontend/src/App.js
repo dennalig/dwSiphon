@@ -10,9 +10,40 @@ import About from './components/pages/About'; // About component
 
 import './App.css';
 
-
+import axios from "axios";// npm i axios -- checks the proxy upon 3000 fail 
+// to link front end to backend
+//go to package.json, add variable proxy to whatever the backend was running on
+// if we ever make a request to an end point, and cant find on front end ...will look there
 
 class App extends Component{
+ 
+  constructor(){
+    super()
+    this.state ={
+      weather: "",
+    }
+    
+  };
+
+  componentDidMount = () =>{ // default funct 
+    axios.get("/getWeathertoronto").then(response =>{
+      console.log(response.data.temp);
+      this.setState({
+
+      
+        weather: response.data.temp
+      }
+      ); // this sets the state to the passed in weather data
+    });
+  };
+
+  /* but you dont want api requests in these places actually.. 
+  can cause timing out
+
+  use redux saga or thunk 
+  YouTuber: Anthony Sistilli
+
+  */
 
   render(){
     return(
@@ -30,12 +61,15 @@ class App extends Component{
 
     </div>
 
+    <p style={{color:'white'}}>here is {this.state.weather}</p>
     </Router>
      
     );
   }
 }
 
+//for onbutton click info go to timestamp 18:42 at
+//here: https://www.youtube.com/watch?v=kJA9rDX7azM&t=554s
 
 
 

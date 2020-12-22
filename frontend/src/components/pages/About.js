@@ -8,6 +8,7 @@ export default function About() {
                 pull your Discover Weekly songs into a 
                 saved playlist for you every week.
             </p>
+
         </React.Fragment>
     )
 }
