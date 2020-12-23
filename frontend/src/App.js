@@ -60,6 +60,7 @@ class App extends Component{
       <Header />
       <Route exact path="/"/> {/* Home Route (self) */}
       <Route path="/about" component= {About}/> {/* About Route */}
+      
 
     </div>
 

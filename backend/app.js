@@ -11,7 +11,7 @@ const port = 5000; // change from 3000 5000 as 3000 is where react is ran
 const clientID = process.env.SPOTIFY_CLIENT_ID; // client ID
 const clientSecret = process.env.SPOTIFY_CLIENT_SECRET; // client secret
 const redirectURI= process.env.SPOTIFY_REDIRECT_URI;
-
+var userScopes = 'user-read-private user-read-email';
 //checkout scopes 
 
 // start with node app.js
