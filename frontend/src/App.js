@@ -11,6 +11,7 @@ import About from './components/pages/About'; // About component
 import './App.css';
 
 import axios from "axios";// npm i axios -- checks the proxy upon 3000 fail 
+import UserPage from "./components/pages/UserPage";
 // to link front end to backend
 //go to package.json, add variable proxy to whatever the backend was running on
 // if we ever make a request to an end point, and cant find on front end ...will look there
@@ -60,6 +61,7 @@ class App extends Component{
       <Header />
       <Route exact path="/"/> {/* Home Route (self) */}
       <Route path="/about" component= {About}/> {/* About Route */}
+      <Route path ="/userPage" component ={UserPage}/>
       
 
     </div>

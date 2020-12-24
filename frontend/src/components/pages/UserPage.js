@@ -21,7 +21,7 @@ export class UserPage extends Component {
     render() {
         return (
             <div>
-                
+                <p style={{color:'white'}}> This is the user Page </p>
             </div>
         )
     }

@@ -1,12 +1,15 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import UserPage from '../pages/UserPage'; //https://stackoverflow.com/questions/58722629/react-import-component-from-another-folder-issue
+// import UserPage from '../pages/UserPage'; //https://stackoverflow.com/questions/58722629/react-import-component-from-another-folder-issue
 // enter username and pw in this component
 export default function EnterInfo(props) {
 // console.log(options);
 const buttonType=props.type; //https://reactjs.org/docs/components-and-props.html
 //TODO: conditional for if clicked on login or connect 
+    const showSelf ={
+        value:true
+    };
     const inputBoxStyle={
        fontSize:'15px',
        textAlign:'left',
@@ -34,12 +37,14 @@ const buttonType=props.type; //https://reactjs.org/docs/components-and-props.htm
         
         
     }
+    
     function submit(event){
         event.preventDefault();
         console.log("here");
     };
 
     return (
+       
         <div style={{padding: '3px'}}>
            
            <form
@@ -66,11 +71,13 @@ const buttonType=props.type; //https://reactjs.org/docs/components-and-props.htm
             id ="enter"
             className="btn"
             style={enterButtonStyle}
-            >{buttonType}</Button>
-           
+            OnClick={showSelf.value=false}
+            ><Link to='/UserPage' style={{color:'white'}}>{buttonType}</Link></Button>  {/*Link to userPage */}
+           {/* Make a state to hide after logging in */}
 
            </form>
         </div>
+        
     )
 
 
