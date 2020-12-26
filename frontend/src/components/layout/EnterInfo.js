@@ -71,7 +71,7 @@ const buttonType=props.type; //https://reactjs.org/docs/components-and-props.htm
             id ="enter"
             className="btn"
             style={enterButtonStyle}
-            OnClick={showSelf.value=false}
+            
             ><Link to='/UserPage' style={{color:'white'}}>{buttonType}</Link></Button>  {/*Link to userPage */}
            {/* Make a state to hide after logging in */}
 
