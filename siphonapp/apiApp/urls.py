@@ -1,9 +1,10 @@
 #store all of urls
 
-from .views import main
+
 from django.urls import path
+from .views import UserPageView
 
 urlpatterns = [
-    path('home', main)
+    path('home', UserPageView.as_view()),
     
 ]

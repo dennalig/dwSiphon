@@ -19,6 +19,6 @@ from django.urls import path, include
 #siphonapp endpoints 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('apiApp.urls')),
-    path('api/', include('apiApp.urls'))
+    path('api/', include('apiApp.urls')),
+    path('', include('frontend.urls')) #sends to frontend's urls files
 ]
