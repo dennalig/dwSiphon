@@ -16,6 +16,7 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      { test: /\.css$/, use: 'css-loader' }
     ],
   },
   optimization: {
@@ -30,3 +31,5 @@ module.exports = {
     }),
   ],
 };
+
+// https://stackoverflow.com/questions/39853646/how-to-import-a-css-file-in-a-react-component
