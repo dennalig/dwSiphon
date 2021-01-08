@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 // import UserPage from '../pages/UserPage'; //https://stackoverflow.com/questions/58722629/react-import-component-from-another-folder-issue
@@ -7,9 +7,7 @@ export default function EnterInfo(props) {
 // console.log(options);
 const buttonType=props.type; //https://reactjs.org/docs/components-and-props.html
 //TODO: conditional for if clicked on login or connect 
-    const showSelf ={
-        value:true
-    };
+    // const [showResults, setShowResults]= React.userState(false);
     const inputBoxStyle={
        fontSize:'15px',
        textAlign:'left',
@@ -38,47 +36,62 @@ const buttonType=props.type; //https://reactjs.org/docs/components-and-props.htm
         
     }
     
+const [hide]= useState(false);
+
     function submit(event){
         event.preventDefault();
         console.log("here");
     };
 
-    return (
-       
-        <div style={{padding: '1px'}}>
-           
-           <form
-           style ={formStyle}>
-            {/* https://www.youtube.com/watch?v=7Vo_VCcWupQ */}
-            <input type="text"
-            id ="username-email"
-            size='25'
-            placeholder="username or email"
-            style={inputBoxStyle}
-            >
-            </input>
-
-            <input type="password"
-            id ="password"
-            size='25'
-            placeholder="password"
-            style={inputBoxStyle}
-            >
-            </input>
-
-            
-            <Button renderAs ="button"
-            id ="enter"
-            className="btn"
-            style={enterButtonStyle}
-            
-            ><Link to='/user' style={{color:'white'}}>{buttonType}</Link></Button>  {/*Link to userPage */}
-           {/* Make a state to hide after logging in */}
-
-           </form>
-        </div>
+    if(hide){
         
-    )
+        return (null);
+    }
+    else{
 
+    
+
+    return (
+ 
+        <div style={{padding: '1px'}} onClick= "onClick">
+           {/* https://stackoverflow.com/questions/28268835/react-onclick-event-on-component 
+           so what works is simply setting onClick = "onClick" ...wow...*/}
+        <form
+        style ={formStyle}>
+         {/* https://www.youtube.com/watch?v=7Vo_VCcWupQ */}
+         <input type="text"
+         id ="username-email"
+         size='25'
+         placeholder="username or email"
+         style={inputBoxStyle}
+         >
+         </input>
+    
+         <input type="password"
+         id ="password"
+         size='25'
+         placeholder="password"
+         style={inputBoxStyle}
+         >
+         </input>
+    
+         
+         <Button renderAs ="button"
+         id ="enter"
+         className="btn"
+         style={enterButtonStyle}
+         
+         ><Link to='/user' style={{color:'white'}}>{buttonType}
+         </Link></Button>  {/*Link to userPage */}
+        {/* Make a state to hide after logging in */}
+        
+        </form>
+     </div>
+    
+    );
+    }
+
+
+ 
 
 }

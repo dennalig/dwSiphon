@@ -9,6 +9,8 @@ import EnterInfo from './EnterInfo'; // EnterInfo component
 //Black Hex color: #191414
 
 
+// https://stackoverflow.com/questions/24502898/show-or-hide-element-in-react
+
 //TODO: Make dynamic Login/Logout display whether user is logged in 
 
 export class Header extends Component{
@@ -22,7 +24,7 @@ export class Header extends Component{
     showInfo = (showVersion) => {
         this.setState({showEnterInfo:true});
         this.setState({loginConnect:showVersion});
-        //console.log(showVersion);
+        
         
     } // function for changing the state 
 
@@ -31,7 +33,7 @@ export class Header extends Component{
     } //reverts to hiding when on a new page 
 
     render(){ // 
-
+        
         return(
             <header style={headerStyle}>
                 <h1> <Link style={linkStyle} to='/' onClick={this.hideInfo}>
@@ -79,7 +81,7 @@ export class Header extends Component{
                 
                 
                 
-                
+                <enter/>
     
             </header>
 
@@ -123,70 +125,7 @@ const linkStyle ={
 }
 
 
-//const of <EnterInfo/>
-
-const enterInfo = () => {
-    <div style={{padding: '1px'}}>
-           
-           <form
-           style ={formStyle}>
-            {/* https://www.youtube.com/watch?v=7Vo_VCcWupQ */}
-            <input type="text"
-            id ="username-email"
-            size='25'
-            placeholder="username or email"
-            style={inputBoxStyle}
-            >
-            </input>
-
-            <input type="password"
-            id ="password"
-            size='25'
-            placeholder="password"
-            style={inputBoxStyle}
-            >
-            </input>
-
-            
-            <Button renderAs ="button"
-            id ="enter"
-            className="btn"
-            style={enterButtonStyle}
-            
-            ><Link to='/user' style={{color:'white'}}>{buttonType}</Link></Button>  {/*Link to userPage */}
-           {/* Make a state to hide after logging in */}
-
-           </form>
-        </div>
-};
-
-    const inputBoxStyle={
-       fontSize:'15px',
-       textAlign:'left',
-       marginRight:'4px',
-       borderColor:'#1DB954'
-       
-       
-    };// text input style
-
-    const formStyle ={
-        display:'flex', 
-        float:'right',
-        height:'30px '
-       
-        
-    };// form style
-
-    const enterButtonStyle ={
-        flex: '0',
-        border: 'none',
-        borderRadius: '5px',
-        backgroundColor: 'blue',
-        fontFamily: 'Tahoma',
-        color: 'white',
-        
-        
-    }
+ 
 
 
 
