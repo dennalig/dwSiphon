@@ -121,4 +121,73 @@ const linkStyle ={
     color: '#191414',
     textDecoration: 'none'
 }
+
+
+//const of <EnterInfo/>
+
+const enterInfo = () => {
+    <div style={{padding: '1px'}}>
+           
+           <form
+           style ={formStyle}>
+            {/* https://www.youtube.com/watch?v=7Vo_VCcWupQ */}
+            <input type="text"
+            id ="username-email"
+            size='25'
+            placeholder="username or email"
+            style={inputBoxStyle}
+            >
+            </input>
+
+            <input type="password"
+            id ="password"
+            size='25'
+            placeholder="password"
+            style={inputBoxStyle}
+            >
+            </input>
+
+            
+            <Button renderAs ="button"
+            id ="enter"
+            className="btn"
+            style={enterButtonStyle}
+            
+            ><Link to='/user' style={{color:'white'}}>{buttonType}</Link></Button>  {/*Link to userPage */}
+           {/* Make a state to hide after logging in */}
+
+           </form>
+        </div>
+};
+
+    const inputBoxStyle={
+       fontSize:'15px',
+       textAlign:'left',
+       marginRight:'4px',
+       borderColor:'#1DB954'
+       
+       
+    };// text input style
+
+    const formStyle ={
+        display:'flex', 
+        float:'right',
+        height:'30px '
+       
+        
+    };// form style
+
+    const enterButtonStyle ={
+        flex: '0',
+        border: 'none',
+        borderRadius: '5px',
+        backgroundColor: 'blue',
+        fontFamily: 'Tahoma',
+        color: 'white',
+        
+        
+    }
+
+
+
 export default Header

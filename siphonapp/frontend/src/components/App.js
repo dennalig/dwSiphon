@@ -36,5 +36,7 @@ const taskBarStyle = {
     textAlign:"center",
     flexDirection: "column"
 }
+
+// render in index.html
 const appDiv = document.getElementById("app");
 render(<App />, appDiv);
