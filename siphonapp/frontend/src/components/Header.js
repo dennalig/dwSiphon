@@ -67,6 +67,7 @@ export class Header extends Component{
 
                 {this.state.showEnterInfo ? <EnterInfo type={this.state.loginConnect}/>: null} {/*this is the enter infocomponent*/}
                 
+                
                 {/* https://www.youtube.com/watch?v=3wvdq_j5S1c&t=70s   
                 
                 Thanks Ben Awad */}
@@ -78,8 +79,11 @@ export class Header extends Component{
                 
                 
                 
+                
     
             </header>
+
+            
         )
     }
 
@@ -90,8 +94,7 @@ const headerStyle ={
     background: 'white',
     textAlign:'justify',
     padding:'10px',
-    fontFamily: 'Tahoma',
-    display:flex
+    fontFamily: 'Tahoma'
 }
 
 
