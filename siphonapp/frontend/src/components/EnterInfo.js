@@ -3,6 +3,9 @@ import {Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 // import UserPage from '../pages/UserPage'; //https://stackoverflow.com/questions/58722629/react-import-component-from-another-folder-issue
 // enter username and pw in this component
+
+import Popup from 'reactjs-popup'; // popup import 
+import 'reactjs-popup/dist/index.css';
 export default function EnterInfo(props) {
 // console.log(options);
 const buttonType=props.type; //https://reactjs.org/docs/components-and-props.html
@@ -43,17 +46,9 @@ const [hide]= useState(false);
         console.log("here");
     };
 
-    if(hide){
-        
-        return (null);
-    }
-    else{
-
-    
-
     return (
  
-        <div style={{padding: '1px'}} onClick= "onClick">
+        <div style={{padding: '1px'}} >
            {/* https://stackoverflow.com/questions/28268835/react-onclick-event-on-component 
            so what works is simply setting onClick = "onClick" ...wow...*/}
         <form
@@ -80,16 +75,16 @@ const [hide]= useState(false);
          id ="enter"
          className="btn"
          style={enterButtonStyle}
-         
+         onClick= "onClick"
          ><Link to='/user' style={{color:'white'}}>{buttonType}
          </Link></Button>  {/*Link to userPage */}
         {/* Make a state to hide after logging in */}
-        
+
         </form>
      </div>
     
     );
-    }
+    
 
 
  
