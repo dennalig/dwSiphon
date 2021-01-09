@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Button} from 'react-bootstrap'; 
+import {Button, Dropdown} from 'react-bootstrap'; 
 
 
 import {Switch} from "antd"; //https://www.npmjs.com/package/antd
@@ -15,6 +15,11 @@ import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 
 export class UserInfoPage extends Component {
 
+    state ={
+        playlist_dest:"",
+
+    }
+    // we will need states for different things here 
     constructor(props){
         super(props);
     }
@@ -22,7 +27,6 @@ export class UserInfoPage extends Component {
 
     render() {
         return (
-            
 
         <div id="parent"> 
             <div className="mb-2" style={divStyle}> 
@@ -81,13 +85,30 @@ export class UserInfoPage extends Component {
             style={divStyle}> 
                 {/* playlist dest dropdown div */}
 
+                <div style={{display:'inline',
+                 float:'left',
+                 margin: '1px 50px'}}>
+                    Save to Playlist:
+                </div>
+                {/* div for text */}
+
                 <div style={{display: 'inline',
                  float:'left',
-                 margin: '1px 50px'}}> 
-                 {/* div style floats to left */}
-                {'Playlist Destination: '}
-                
-                
+                 }}> 
+
+                <Dropdown>
+                <Dropdown.Toggle variant="success" id="dropdown-basic"
+                color="#1DB954">
+                + Create A New Playlist
+                </Dropdown.Toggle>
+
+                   <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    </Dropdown.Menu>                
+                </Dropdown>
+               
                 </div>
                 
             </div>
@@ -95,6 +116,10 @@ export class UserInfoPage extends Component {
             <div> 
                 {/* Discoveries of the week 
                 album showcase div */}
+            </div>
+            <div style={divStyle}>
+                {/* text to display when last siphoned */}
+                Last Siphoned: DD-MM-YYYY
             </div>
 
             <div style={divStyle} > 
@@ -107,7 +132,7 @@ export class UserInfoPage extends Component {
             > 
             Disconnect From DWSiphon
             </Button>
-            </div>
+                </div>
 
             </div>
              

@@ -5,12 +5,12 @@ class UserPageSerializer(serializers.ModelSerializer):
         model = UserPage
         fields = ('id', 'username',
         'playlist_dest', 'auto_siphon',
-        'allow_explicit', 'disconnect_account',
-        'session_name')
+        'allow_explicit', 'last_siphoned',
+        'disconnect_account','session_name')
 
 # new Profile -- serialize a request
 class CreateUserPageSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserPage
-        fields = ('username', 'playlist_dest')
+        fields = ('username', 'playlist_dest', 'last_siphoned')
     #create-user page , fields we want to be sent 
