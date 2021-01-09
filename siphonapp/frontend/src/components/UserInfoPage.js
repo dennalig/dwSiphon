@@ -1,7 +1,16 @@
 import React, { Component } from 'react'
 import {Button} from 'react-bootstrap'; 
 
-import { FormGroup, FormControlLabel } from '@material-ui/core'; //https://material-ui.com/api/form-group/
+
+import {Switch} from "antd"; //https://www.npmjs.com/package/antd
+//antd documentation 
+import { generate, presetPalettes } from '@ant-design/colors';
+// https://www.npmjs.com/package/@ant-design/colors
+import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
+//checks and x's
+
+
+// import { FormGroup, FormControlLabel } from '@material-ui/core'; //https://material-ui.com/api/form-group/
 //https://react-bootstrap.github.io/components/buttons/
 
 export class UserInfoPage extends Component {
@@ -16,7 +25,7 @@ export class UserInfoPage extends Component {
             
 
         <div id="parent"> 
-            <div className="mb-2"> 
+            <div className="mb-2" style={divStyle}> 
             
             {/* siphon button */}
             <Button 
@@ -24,24 +33,63 @@ export class UserInfoPage extends Component {
             size="lg"
             style={buttonStyle}
             > 
-            
-                Pull Songs From Your Discover Weekly Playlist
+            Pull Songs From Your Discover Weekly Playlist
             </Button>
             </div>
-
-            <div>
+         
+            <div id="autoSiphon"
+            style={divStyle}>
                 {/*Automatically Siphon Weekly div */}
-
+            
+                
+                <div style={{display: 'inline',
+                 float:'left',
+                 margin: '1px 50px'}}> 
+                 {/* div style floats to left */}
+                {'Automatically Pull Songs Each Week: '}
+                <Switch size="large"
+                checkedChildren={<CheckOutlined />}
+                unCheckedChildren={<CloseOutlined />}
+                defaultChecked
+                /> 
+                
+                </div>
+            
             </div>
 
-            <div>
-                {/*Allow Explicit songs div */}
-
+            <div id="allowExplicit"
+            style={divStyle}>
+                {/*Allow Explicit Songs div */}
+            
+                
+                <div style={{display: 'inline',
+                 float:'left',
+                 margin: '1px 50px'}}> 
+                 {/* div style floats to left */}
+                {'Allow Explicit Songs: '}
+                <Switch size="large"
+                checkedChildren={<CheckOutlined />}
+                unCheckedChildren={<CloseOutlined />}
+                defaultunChecked
+                /> 
+                
+                </div>
+            
             </div>
 
-
-            <div> 
+            <div id="playlistDest"
+            style={divStyle}> 
                 {/* playlist dest dropdown div */}
+
+                <div style={{display: 'inline',
+                 float:'left',
+                 margin: '1px 50px'}}> 
+                 {/* div style floats to left */}
+                {'Playlist Destination: '}
+                
+                
+                </div>
+                
             </div>
 
             <div> 
@@ -49,7 +97,7 @@ export class UserInfoPage extends Component {
                 album showcase div */}
             </div>
 
-            <div> 
+            <div style={divStyle} > 
                 {/* Disconnect from DWSiphon div */}
 
             <Button 
@@ -82,10 +130,15 @@ const buttonStyle ={
     color: 'white',
 }
 
+const leftItemStyle ={
+    float: 'left',
+    margin: '35px 35px',
+}
+
 const disconnectStyle ={
     flex: '0',
     padding: '15px 32px',
-    margin: '35px 35px',
+    margin: '10px 10px',
     float: 'center',
     border: 'none',
     borderRadius: '12px',
@@ -95,9 +148,14 @@ const disconnectStyle ={
     color: 'black',
 }
 
-
-
-
-
+// https://www.w3schools.com/cssref/pr_class_display.asp
+// inline -block is what we want 
+const divStyle ={
+    display: 'inline-block',
+    width:'100%',
+    fontFamily: 'Tahoma',
+    fontSize: '20px',
+    color: 'white',
+}
 
 export default UserInfoPage
