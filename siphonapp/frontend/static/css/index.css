@@ -29,7 +29,21 @@ code {
     height: 100%;
     display:flex;
     text-align: center;
-
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, pink, teal, navy, red,purple);
+    background-size: 400% 400%;
+    animation: gradient 40s ease infinite;
+  }
+  /* background aanimation by https://codepen.io/P1N2O/pen/pyBNzX */
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
 }
 #app-logo {
     height: 40vmin;

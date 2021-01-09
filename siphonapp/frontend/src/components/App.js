@@ -34,7 +34,7 @@ const taskBarStyle = {
     height:"100%", 
     display:"flex",
     textAlign:"center",
-    flexDirection: "column"
+    flexDirection: "column",
 }
 
 // render in index.html

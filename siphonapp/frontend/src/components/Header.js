@@ -63,7 +63,7 @@ export class Header extends Component{
                     <p style={optionStyle}>
                         <Link style={linkStyle} to='/' onClick={this.hideInfo}>Home </Link> 
                         |
-                        <Link style={linkStyle} to='/about' onClick={this.hideInfo} >About </Link>
+                        <Link style={linkStyle} to='/about' onClick={this.hideInfo} > About </Link>
                     </p>
                 </div>
 
@@ -93,10 +93,13 @@ export class Header extends Component{
 }
 
 const headerStyle ={
-    background: 'white',
+    background: '#282c34',
     textAlign:'justify',
     padding:'10px',
-    fontFamily: 'Tahoma'
+    fontFamily: 'Tahoma',
+    borderStyle:'solid',
+    borderRadius: '2px',
+    borderColor:'dark-grey'
 }
 
 
@@ -115,12 +118,13 @@ const buttonStyle ={
 
 const optionStyle ={
     fontFamily: 'Tahoma',
-    fontSize: '20px'
+    fontSize: '20px',
+    color: '#1DB954',
 }
 
 
 const linkStyle ={
-    color: '#191414',
+    color: 'white',
     textDecoration: 'none'
 }
 
