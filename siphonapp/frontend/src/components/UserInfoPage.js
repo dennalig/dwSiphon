@@ -117,6 +117,9 @@ export class UserInfoPage extends Component {
             <div> 
                 {/* Discoveries of the week 
                 album showcase div */}
+                
+            {/* Image slider here  */}
+             {/* https://smartslider3.com/blog/image-slider/ */}
             </div>
             <div style={divStyle}>
                 {/* text to display when last siphoned */}
