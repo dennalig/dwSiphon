@@ -8,6 +8,9 @@ import { generate, presetPalettes } from '@ant-design/colors';
 // https://www.npmjs.com/package/@ant-design/colors
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 //checks and x's
+//https://www.npmjs.com/package/react-multi-carousel
+//I think this could be cool
+
 
 
 // import { FormGroup, FormControlLabel } from '@material-ui/core'; //https://material-ui.com/api/form-group/
@@ -117,9 +120,15 @@ export class UserInfoPage extends Component {
             <div> 
                 {/* Discoveries of the week 
                 album showcase div */}
-                
-            {/* Image slider here  */}
-             {/* https://smartslider3.com/blog/image-slider/ */}
+
+            {/* Image slider options here  */}
+             {/* 
+             CAROUSELLLLLL!; https://www.npmjs.com/package/react-multi-carousel
+             https://codepen.io/bkainteractive/pen/VLxLYp
+             
+             
+             */}
+
             </div>
             <div style={divStyle}>
                 {/* text to display when last siphoned */}
@@ -186,5 +195,6 @@ const divStyle ={
     fontSize: '20px',
     color: 'white',
 }
+
 
 export default UserInfoPage
