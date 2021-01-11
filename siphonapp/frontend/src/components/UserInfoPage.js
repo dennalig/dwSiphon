@@ -17,23 +17,72 @@ import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 //https://react-bootstrap.github.io/components/buttons/
 
 export class UserInfoPage extends Component {
-
-    state ={
-        playlist_dest:"",
-
-    }
+    defAutoSiphon= 'true';
+    defAllowExplicit='false';
+    defDisconnect='false';
+    // state will hold the current values of the user 
+  
     // we will need states for different things here 
     constructor(props){
         super(props);
+        this.state ={
+            auto_siphon:this.defAutoSiphon,
+            allow_explicit: this.defAllowExplicit,
+    
+            playlist_dest:"",
+            last_siphoned:"DD-MM-YYYY",
+            disconnect:this.defDisconnect
+    
+        }
+        this.handleAutoSiphonChange = this.handleAutoSiphonChange.bind(this);
+        this.handleAllowExplicitChange = this.handleAllowExplicitChange.bind(this);
+        this.handlePlaylistDestChange = this.handlePlaylistDestChange.bind(this);
+        this.handleDisconnectChange = this.handleDisconnectChange.bind(this);
+        
+
     }
 
+    //change auto siphon function
+    handleAutoSiphonChange(e){
+        console.log(this.state.auto_siphon);
+        
+        this.setState({
+            auto_siphon: e.target.value === 'true' ? true : false 
+        });
 
+        
+    }
+
+    handleAllowExplicitChange(e){
+
+        // console.log("changed allow Explicit");
+        this.setState({
+            allow_explicit: e.target.value === 'true' ? true : false
+        });
+    }
+
+    handlePlaylistDestChange(e){
+        this.setState({
+            playlist_dest: e.target.value,
+        });
+    }
+
+    handleDisconnectChange(e){
+        this.setState({
+            disconnect: e.target.value === 'true' ? true : false
+        });
+    }
+    
+    
+
+
+//*RENDER*
     render() {
         return (
 
         <div id="parent"> 
             <div className="mb-2" style={divStyle}> 
-            
+          
             {/* siphon button */}
             <Button 
             variant="primary"
@@ -58,6 +107,8 @@ export class UserInfoPage extends Component {
                 checkedChildren={<CheckOutlined />}
                 unCheckedChildren={<CloseOutlined />}
                 defaultChecked
+
+                onChange ={this.handleAutoSiphonChange}
                 /> 
                 
                 </div>
@@ -74,10 +125,13 @@ export class UserInfoPage extends Component {
                  margin: '1px 50px'}}> 
                  {/* div style floats to left */}
                 {'Allow Explicit Songs: '}
+                
                 <Switch size="large"
                 checkedChildren={<CheckOutlined />}
                 unCheckedChildren={<CloseOutlined />}
                 defaultunChecked
+
+                onChange={this.handleAllowExplicitChange}
                 /> 
                 
                 </div>
@@ -106,10 +160,10 @@ export class UserInfoPage extends Component {
                 </Dropdown.Toggle>
 
                    <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">User Playlist 1</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">User Playlist 2</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">...</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">User Playlist x</Dropdown.Item>
+                    <Dropdown.Item >User Playlist 1</Dropdown.Item>
+                    <Dropdown.Item >User Playlist 2</Dropdown.Item>
+                    <Dropdown.Item >...</Dropdown.Item>
+                    <Dropdown.Item >User Playlist x</Dropdown.Item>
                     </Dropdown.Menu>                
                 </Dropdown>
                
@@ -142,6 +196,8 @@ export class UserInfoPage extends Component {
             variant="secondary"
             size="sm"
             style={disconnectStyle}
+
+            onChange= {this.handleDisconnectChange}
             > 
             Disconnect From DWSiphon
             </Button>

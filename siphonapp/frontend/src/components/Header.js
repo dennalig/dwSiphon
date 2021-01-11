@@ -39,7 +39,7 @@ export class Header extends Component{
                 <h1> <Link style={linkStyle} to='/' onClick={this.hideInfo}>
                     Discover Weekly Siphon
                     </Link>
-    
+                {/* connect */}
                 <input type="button"
                 value="Connect Your Spotify Account"
                 className="btn"
@@ -48,7 +48,7 @@ export class Header extends Component{
                     ()=>this.showInfo("Connect")
                 } 
                 />
-
+                {/* login  */}
                 <input type="button"
                 value="Login"
                 className="btn"
@@ -56,9 +56,11 @@ export class Header extends Component{
                 onClick = {
                    ()=> this.showInfo("Login")
                 }
+                
                 />
                 {/* https://stackoverflow.com/questions/29810914/react-js-onclick-cant-pass-value-to-method */}
-    
+                
+                {/* links to home and about */}
                 <div className="container">
                     <p style={optionStyle}>
                         <Link style={linkStyle} to='/' onClick={this.hideInfo}>Home </Link> 
@@ -114,6 +116,8 @@ const buttonStyle ={
     fontFamily: 'Tahoma',
     fontSize: '20px',
     color: 'white'
+
+
 }
 
 const optionStyle ={
