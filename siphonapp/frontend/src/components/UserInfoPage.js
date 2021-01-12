@@ -2,36 +2,34 @@ import React, { Component } from 'react'
 import {Button, Dropdown} from 'react-bootstrap'; 
 
 
-import {Switch} from "antd"; //https://www.npmjs.com/package/antd
-//antd documentation 
+
+// import Switch from "react-switch";// https://www.npmjs.com/package/react-switch
 import { generate, presetPalettes } from '@ant-design/colors';
 // https://www.npmjs.com/package/@ant-design/colors
-import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
+import { CloseOutlined, CheckOutlined, ConsoleSqlOutlined } from '@ant-design/icons';
 //checks and x's
 //https://www.npmjs.com/package/react-multi-carousel
 //I think this could be cool
 
 
 
-// import { FormGroup, FormControlLabel } from '@material-ui/core'; //https://material-ui.com/api/form-group/
+ import { FormGroup, FormControlLabel, Switch } from '@material-ui/core'; //https://material-ui.com/api/form-group/
 //https://react-bootstrap.github.io/components/buttons/
 
 export class UserInfoPage extends Component {
-    defAutoSiphon= 'true';
-    defAllowExplicit='false';
-    defDisconnect='false';
+  
     // state will hold the current values of the user 
   
     // we will need states for different things here 
     constructor(props){
         super(props);
         this.state ={
-            auto_siphon:this.defAutoSiphon,
-            allow_explicit: this.defAllowExplicit,
+            auto_siphon:true,
+            allow_explicit: true,
     
             playlist_dest:"",
             last_siphoned:"DD-MM-YYYY",
-            disconnect:this.defDisconnect
+            disconnect:true
     
         }
         this.handleAutoSiphonChange = this.handleAutoSiphonChange.bind(this);
@@ -44,10 +42,10 @@ export class UserInfoPage extends Component {
 
     //change auto siphon function
     handleAutoSiphonChange(e){
-        console.log(this.state.auto_siphon);
+        console.log(e.target.value);
         
         this.setState({
-            auto_siphon: e.target.value === 'true' ? true : false 
+            auto_siphon: e.target.value === 'true' ? true : false,
         });
 
         
@@ -56,25 +54,25 @@ export class UserInfoPage extends Component {
     handleAllowExplicitChange(e){
 
         // console.log("changed allow Explicit");
+        console.log(this.state.allow_explicit);
         this.setState({
-            allow_explicit: e.target.value === 'true' ? true : false
+            allow_explicit: e.target.value === 'true' ? true : false,
         });
     }
 
     handlePlaylistDestChange(e){
+        
         this.setState({
             playlist_dest: e.target.value,
         });
     }
 
     handleDisconnectChange(e){
+
         this.setState({
-            disconnect: e.target.value === 'true' ? true : false
+            disconnect: e.target.value === 'true' ? true : false,
         });
     }
-    
-    
-
 
 //*RENDER*
     render() {
@@ -103,13 +101,11 @@ export class UserInfoPage extends Component {
                  margin: '1px 50px'}}> 
                  {/* div style floats to left */}
                 {'Automatically Pull Songs Each Week: '}
-                <Switch size="large"
-                checkedChildren={<CheckOutlined />}
-                unCheckedChildren={<CloseOutlined />}
-                defaultChecked
+                <Switch
 
-                onChange ={this.handleAutoSiphonChange}
-                /> 
+                onChange={this.handleAutoSiphonChange}
+                />
+                
                 
                 </div>
             
@@ -125,14 +121,8 @@ export class UserInfoPage extends Component {
                  margin: '1px 50px'}}> 
                  {/* div style floats to left */}
                 {'Allow Explicit Songs: '}
-                
-                <Switch size="large"
-                checkedChildren={<CheckOutlined />}
-                unCheckedChildren={<CloseOutlined />}
-                defaultunChecked
-
-                onChange={this.handleAllowExplicitChange}
-                /> 
+                <Switch
+                onChange={this.handleAllowExplicitChange}/>
                 
                 </div>
             
@@ -197,7 +187,7 @@ export class UserInfoPage extends Component {
             size="sm"
             style={disconnectStyle}
 
-            onChange= {this.handleDisconnectChange}
+            onClick= {this.handleDisconnectChange}
             > 
             Disconnect From DWSiphon
             </Button>
