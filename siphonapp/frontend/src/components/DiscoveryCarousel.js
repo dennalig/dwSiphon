@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+// import './carousel.scss';
 
 export class DiscoveryCarousel extends Component {
     render() {

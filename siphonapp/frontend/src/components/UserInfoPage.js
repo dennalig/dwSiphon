@@ -21,11 +21,14 @@ export class UserInfoPage extends Component {
             disconnect:false
     
         }
+        //bindings
         this.handleAutoSiphonChange = this.handleAutoSiphonChange.bind(this);
         this.handleAllowExplicitChange = this.handleAllowExplicitChange.bind(this);
         this.handlePlaylistDestChange = this.handlePlaylistDestChange.bind(this);
         this.handleDisconnectChange = this.handleDisconnectChange.bind(this);
         
+        //save changes
+        this.handleSaveChanges= this.handleSaveChanges.bind(this);
 
     }
 
@@ -67,7 +70,27 @@ export class UserInfoPage extends Component {
         });
     }
 
-    handleSaveChanges(e){
+    handleSaveChanges(e){//save current changes 
+        console.log("Current State \n");
+        console.log(this.state);
+
+        //connection to backend
+        //converting frontend to JSON
+
+        const requestOptions ={
+            method:'POST',
+            headers:{'Contend-Type':'application/json'},
+            body:JSON.stringify({
+                auto_siphon: this.state.auto_siphon,
+                allow_explicit: this.state.allow_explicit,
+                playlist_dest : this.state.playlist_dest,
+                last_siphoned : this.state.last_siphoned,
+                disconnect : this.state.disconnect
+            })
+        };
+
+        //fetch request 
+        
 
     }
 
