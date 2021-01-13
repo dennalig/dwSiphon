@@ -1,16 +1,9 @@
 import React, { Component } from 'react'
 import {Button, Dropdown} from 'react-bootstrap'; 
-
-
-
-// import Switch from "react-switch";// https://www.npmjs.com/package/react-switch
-import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
-//https://www.npmjs.com/package/react-multi-carousel
-//I think this could be cool
-
  import { Switch } from '@material-ui/core'; //https://material-ui.com/api/form-group/
 //https://react-bootstrap.github.io/components/buttons/
+
+import DiscoveryCarousel from './DiscoveryCarousel';
 
 export class UserInfoPage extends Component {
   
@@ -204,12 +197,10 @@ export class UserInfoPage extends Component {
              
              */}
 
-<Carousel responsive={responsive}>
-        <div>Item 1</div>
-        <div>Item 2</div>
-        <div>Item 3</div>
-        <div>Item 4</div>
-      </Carousel>;
+             <DiscoveryCarousel/> 
+             {/* Discovery Carousel component
+             Will need a prop */}
+
             </div>
             <div style={divStyle}>
                 {/* text to display when last siphoned */}
@@ -308,24 +299,5 @@ const divStyle ={
     color: 'white',
 }
 
-const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
-  };
 
 export default UserInfoPage
