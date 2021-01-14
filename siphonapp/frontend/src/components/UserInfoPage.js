@@ -13,6 +13,7 @@ export class UserInfoPage extends Component {
     constructor(props){
         super(props);
         this.state ={
+            username:null,
             auto_siphon:false,
             allow_explicit: false,
     
@@ -72,7 +73,7 @@ export class UserInfoPage extends Component {
 
     handleSaveChanges(e){//save current changes 
         console.log("Current State \n");
-        console.log(this.state);
+        // console.log(this.state);
 
         //connection to backend
         //converting frontend to JSON
@@ -81,6 +82,7 @@ export class UserInfoPage extends Component {
             method:'POST',
             headers:{'Contend-Type':'application/json'},
             body:JSON.stringify({
+                username: this.username,
                 auto_siphon: this.state.auto_siphon,
                 allow_explicit: this.state.allow_explicit,
                 playlist_dest : this.state.playlist_dest,
@@ -90,7 +92,9 @@ export class UserInfoPage extends Component {
         };
 
         //fetch request 
-        
+        fetch("/api/userpref", requestOptions).then((response)=>
+        response.json()
+        ).then((data)=> console.log(data));
 
     }
 
