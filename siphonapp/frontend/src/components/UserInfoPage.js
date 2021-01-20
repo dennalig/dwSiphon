@@ -19,7 +19,7 @@ export class UserInfoPage extends Component {
     
             playlist_dest:null,
             last_siphoned:null,
-            disconnect:false
+            disconnect_account:false
     
         }
         //bindings
@@ -82,21 +82,21 @@ export class UserInfoPage extends Component {
             method:'POST',
             headers:{'Contend-Type':'application/json'},
             body:JSON.stringify({
-                username: this.username,
+                username: this.state.username,
                 auto_siphon: this.state.auto_siphon,
                 allow_explicit: this.state.allow_explicit,
                 playlist_dest : this.state.playlist_dest,
                 last_siphoned : this.state.last_siphoned,
-                disconnect : this.state.disconnect
+                disconnect_account : this.state.disconnect_account
             })
         };
 
-        //fetch request 
-        fetch("/api/userpref", requestOptions).then((response)=>
+        fetch('api/create-pref', requestOptions).then()((response) =>
         response.json()
-        ).then((data)=> console.log(data));
+        ).then((data) => console.log(data));
 
-    }
+
+    } //end handle 
 
     handleDisconnectChange(e){
 

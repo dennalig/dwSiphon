@@ -3,6 +3,7 @@ from .views import UserPageView , CreateUserPageView
 
 urlpatterns = [
     path('home', UserPageView.as_view()),
-    path('userpref',CreateUserPageView.as_view())
+    path('create-pref', CreateUserPageView.as_view())
+    
 
 ]

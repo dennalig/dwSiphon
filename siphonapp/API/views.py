@@ -15,8 +15,9 @@ class CreateUserPageView(APIView):
     serializer_class = CreateUserPageSerializer
 
     def post(self, request, format=None):
-        if not self.request.session.exist(self.request.session.session_key):
+        if not self.request.session.exists(self.request.session.session_key):
             self.request.session.create()
+            #exists ! 
 
         serializer = self.serializer_class(data= request.data)
         if serializer.is_valid():
