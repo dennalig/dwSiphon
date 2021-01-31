@@ -1,3 +1,4 @@
 node_modules
 #inside of backend folder  (npm i dotenv --save) ---
 .env
+react

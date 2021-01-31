@@ -89,6 +89,7 @@ export class UserInfoPage extends Component {
                 last_siphoned : this.state.last_siphoned,
                 disconnect_account : this.state.disconnect_account
             })
+                //last_siphoned is a date value, which is the unsupported media type
         };
 
         fetch('api/create-pref', requestOptions).then()((response) =>
