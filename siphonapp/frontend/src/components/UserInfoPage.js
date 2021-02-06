@@ -19,7 +19,8 @@ export class UserInfoPage extends Component {
     
             playlist_dest:null,
             last_siphoned:null,
-            disconnect_account:false
+            disconnect_account:false,
+            session_name : null
     
         }
         //bindings
@@ -77,24 +78,30 @@ export class UserInfoPage extends Component {
 
         //connection to backend
         //converting frontend to JSON
+        // console.log("username: "+this.state.username)
+        // console.log("auto_siphon: "+ this.state.auto_siphon)
+        // console.log("allow_explicit: "+ this.state.allow_explicit)
+        // console.log("playlist_dest: "+ this.state.playlist_dest)
+        // console.log("last_siphoned: "+ this.state.last_siphoned);
+        // console.log("disconnect_account: "+ this.state.disconnect_account)
 
         const requestOptions ={
             method:'POST',
-            headers:{'Contend-Type':'application/json'},
+            headers:{"Content-Type": "application/json; charset=UTF-8"},
             body:JSON.stringify({
                 username: this.state.username,
                 auto_siphon: this.state.auto_siphon,
                 allow_explicit: this.state.allow_explicit,
                 playlist_dest : this.state.playlist_dest,
                 last_siphoned : this.state.last_siphoned,
-                disconnect_account : this.state.disconnect_account
+                disconnect_account : this.state.disconnect_account,
+                session_name: this.state.session_name
             })
                 //last_siphoned is a date value, which is the unsupported media type
         };
 
-        fetch('api/create-pref', requestOptions).then()((response) =>
-        response.json()
-        ).then((data) => console.log(data));
+        fetch('/api/create-pref', requestOptions).then((response) => response.json())
+                                                .then((data)=> console.log(data));
 
 
     } //end handle 
