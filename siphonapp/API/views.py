@@ -23,19 +23,19 @@ class CreateUserPageView(APIView):
         if serializer.is_valid():
             username = serializer.data.get('username')
             playlist_dest = serializer.data.get('playlist_dest')
-            last_siphoned = serializer.data.get('last_siphoned')
+            # last_siphoned = serializer.data.get('last_siphoned')
             session_name = self.request.session.session_key
             quesryset = UserPage.objects.filter(username=username)
             if quesryset.exists(): #checking if it exists
                 userpage =quesryset[0]
                 userpage.username = username
                 userpage.playlist_dest = playlist_dest
-                userpage.save(update_fields=['playlist_dest', 'auto_siphon', "last_siphoned"
+                userpage.save(update_fields=['playlist_dest', 'auto_siphon', 'last_siphoned'
                             'allow_explicit'])
                 return Response(UserPageSerializer(userpage).data, 
                 status = status.HTTP_200_OK)
             else: #if it does not exist, we apply the values of the new userpage to that of what is passed in 
-                userpage = UserPage(username= username, playlist_dest= playlist_dest, last_siphoned=last_siphoned,
+                userpage = UserPage(username= username, playlist_dest= playlist_dest,
                 session_name=session_name)
                 userpage.save()
                 return Response(UserPageSerializer(userpage).data, status=status.HTTP_201_CREATED)
