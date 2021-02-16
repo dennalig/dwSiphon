@@ -54,7 +54,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'siphonapp.urls'
-
+#https://www.youtube.com/watch?v=F9o4GSkSo40
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
