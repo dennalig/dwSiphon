@@ -19,7 +19,7 @@ class CreateUserPageView(APIView):
             self.request.session.create()
             #exists ! 
 
-        serializer = self.serializer_class(data= request.data)
+        serializer = self.serializer_class(data = request.data)
         if serializer.is_valid():
             username = serializer.data.get('username')
             playlist_dest = serializer.data.get('playlist_dest')

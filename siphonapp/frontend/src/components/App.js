@@ -6,6 +6,7 @@ import Helmet from 'react-helmet';//https://stackoverflow.com/questions/42464888
 import HomePage from './HomePage';
 import Header from './Header';
 
+// to run do ---> 'npm run dev'
 export default class App extends Component {
 
     constructor(props){

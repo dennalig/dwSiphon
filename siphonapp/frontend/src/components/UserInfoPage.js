@@ -78,16 +78,17 @@ export class UserInfoPage extends Component {
 
         //connection to backend
         //converting frontend to JSON
-        // console.log("username: "+this.state.username)
-        // console.log("auto_siphon: "+ this.state.auto_siphon)
-        // console.log("allow_explicit: "+ this.state.allow_explicit)
-        // console.log("playlist_dest: "+ this.state.playlist_dest)
-        // console.log("last_siphoned: "+ this.state.last_siphoned);
-        // console.log("disconnect_account: "+ this.state.disconnect_account)
+        console.log("username: "+this.state.username)
+        console.log("auto_siphon: "+ this.state.auto_siphon)
+        console.log("allow_explicit: "+ this.state.allow_explicit)
+        console.log("playlist_dest: "+ this.state.playlist_dest)
+        console.log("last_siphoned: "+ this.state.last_siphoned);
+        console.log("disconnect_account: "+ this.state.disconnect_account)
 
         const requestOptions ={
             method:'POST',
-            headers:{"Content-Type": "application/json; charset=UTF-8"},
+            headers:{"Content-Type": "application/json; charset=UTF-8",
+                        'Accept':'applicaiton/json, text/plain'},
             body:JSON.stringify({
                 username: this.state.username,
                 auto_siphon: this.state.auto_siphon,
@@ -100,7 +101,9 @@ export class UserInfoPage extends Component {
                 //last_siphoned is a date value, which is the unsupported media type
         };
 
-        fetch('/api/create-pref', requestOptions).then((response) => response.json())
+        console.log(requestOptions);
+
+        fetch('api/create-pref', requestOptions).then((response) => response.json())
                                                 .then((data)=> console.log(data));
 
 
@@ -135,6 +138,7 @@ export class UserInfoPage extends Component {
             > 
             Pull Songs From Your Discover Weekly Playlist
             </Button>
+            
             </div>
          
             <div id="autoSiphon"
