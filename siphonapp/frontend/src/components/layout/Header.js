@@ -35,7 +35,7 @@ export class Header extends Component{
         return(
             <header style={headerStyle}>
                 <h1> <Link style={linkStyle} to='/' onClick={this.hideInfo}>
-                    Discover Weekly Siphon
+                    Discover Weekly Siphon...
                     </Link>
     
                 <input type="button"
